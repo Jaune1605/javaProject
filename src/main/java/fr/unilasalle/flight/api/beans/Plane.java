@@ -3,43 +3,42 @@ package fr.unilasalle.flight.api.beans;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+// INSERT INTO planes(id, operator, model, registration, capacity) VALUES(NEXTVAL('planes_sequence'), 'AirbusIndustrie', 'AIRBUS A380','F-ABCD', 10);
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
-@Table(name = "plane")
+@Table(name = "planes")
 public class Plane extends PanacheEntityBase {
 
-    @Id
-    @SequenceGenerator(
-            name = "plane_sequence",
-            sequenceName = "plane_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "plane_sequence"
-    )
-    private int id;
+        @Id
+        @SequenceGenerator(
+                name = "planes_sequence",
+                sequenceName = "planes_sequence",
+                allocationSize = 1
+                )
+        @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                generator = "planes_sequence")
+        private Long id;
 
-    @Column(name = "operator", nullable = false, columnDefinition = "TEXT")
-    @NotNull
-    @Size(min = 1, max = 50)
-    private String operator;
+        @NotBlank(message = "Plane Operator can not be empty")
+        @Column(name= "operator", nullable = false)
+        private String operator;
 
-    @Column(name = "model", nullable = false, length = 50)
-    @NotNull
-    @Size(min = 1, max = 50)
-    private String model;
+        @NotBlank(message = "Plane Model can not be empty")
+        @Column(name= "model", nullable = false)
+        private String model;
 
-    @Column(name = "registration", nullable = false, unique = true, length = 20)
-    @NotNull
-    @Size(min = 1, max = 20)
-    private String registration;
+        @NotBlank(message = "Plane Registration can not be empty")
+        @Column(unique = true, nullable = false, name = "registration")
+        private String registration;
 
-    @Column(name = "capacity", nullable = false)
-    @NotNull
-    @Min(1)
-    private int capacity;
-
-    // Getters and setters
-    // ...
+        @NotNull(message = "Plane Capacity must be provided")
+        @Min(value = 5, message = "Plane Capacity must be at least 5")
+        @Column(name="capacity", nullable = false)
+        private Long capacity;
 }

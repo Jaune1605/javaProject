@@ -1,9 +1,0 @@
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Gabriel', 'Petit', 'gabriel.petit@outlook.fr');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Louis', 'Leroy', 'louis.leroy@yahoo.fr');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Gabriel', 'Martin', 'gabriel.martin@gmail.com');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Raphaël', 'Leroy', 'raphaël.leroy@gmail.com');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Rose', 'Bertrand', 'rose.bertrand@hotmail.fr');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Adam', 'David', 'adam.david@yahoo.fr');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Gabriel', 'Robert', 'gabriel.robert@outlook.fr');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Arthur', 'David', 'arthur.david@hotmail.fr');
-INSERT INTO passenger (id, firstname, surname, email) VALUES (NEXTVAL('passenger_sequence'), 'Anna', 'Moreau', 'anna.moreau@orange.fr');
