@@ -11,12 +11,8 @@ import java.util.List;
 @Model
 public class PlaneRepository implements PanacheRepositoryBase<Plane, Long> {
 
-
     public List<Plane> findByOperator(String operator) {
         return find("operator", operator).stream().toList();
     }
 
-    public Plane getById(Long id) {
-        return findById(id);
-    }
 }
