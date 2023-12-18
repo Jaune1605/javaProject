@@ -44,11 +44,10 @@ public class PlaneRessource extends GenericRessource {
     @POST
     @Transactional
     public Response createPlane(Plane plane) {
-        Set<ConstraintViolation<Plane>> violations = validator.validate(plane);
+        var violations = validator.validate(plane);
         if (!violations.isEmpty()) {
             return Response.status(400).entity(new ErrorWrapper(violations)).build();
         }
-
         try {
             repository.persistAndFlush(plane);
             return Response.ok(plane).status(201).build();
